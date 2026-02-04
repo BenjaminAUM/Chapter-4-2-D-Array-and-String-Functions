@@ -1,0 +1,46 @@
+// 2-2-26 Chapter 4 Reversing a String
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+char text[200];
+
+void reverse_string(char text[200]);
+
+int main()
+{
+
+
+	cout << "Enter a word/sentence: ";
+	cin.getline(text, 200);
+
+	reverse_string(text);
+
+	return 0;
+}
+
+void reverse_string(char text[200])
+{
+	int length = 0;
+
+	while (text[length] != '\0')
+	{
+		length++;
+	}
+
+	int left_index = 0;
+	int right_index = length - 1;
+
+	while (left_index < right_index)
+	{
+		char temp = text[left_index];
+		text[left_index] = text[right_index];
+		text[right_index] = temp;
+
+		left_index++;
+		right_index--;
+	}
+
+
+	cout << text << endl;
+}
